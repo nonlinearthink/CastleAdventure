@@ -26,6 +26,7 @@ such as: go west.
 There are probably several directions to choose from.
 
 - west,east,north,south.
+
 Basic direction.
 
 - unkown

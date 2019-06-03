@@ -6,7 +6,7 @@ You can compile it yourself and run it.
 
 **You can then find the source file under "src/SimpleGame" and the compiled class file under "out/production/javaProject/SimpleGame".**
 
-For a detailed introduction and introduction to the game, please check here.
+For a detailed introduction to the game, please check here.
 
 
 ## rule

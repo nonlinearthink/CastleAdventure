@@ -29,12 +29,15 @@ There are probably several directions to choose from.
 Basic direction.
 
 - unkown
+
 Maybe go to some strange places.
 
 - cross
+
 A time-space shuttle may save you.
 
 - up,down
+
 Upstairs or downstairs.
 
 

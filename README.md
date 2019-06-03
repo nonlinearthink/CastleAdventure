@@ -1,7 +1,9 @@
 # CastleAdventure
 This is a Java command line game adapted from a free course on MOOC website of China University. 
 You can compile it yourself and run it. 
+**You can then find the source file under "src/SimpleGame" and the compiled class file under "out/production/javaProject/SimpleGame".**
 For a detailed introduction and introduction to the game, please check here.
+
 
 ## rule
 The rules of the game are simple. Once you enter the game, you will be reborn outside the castle.

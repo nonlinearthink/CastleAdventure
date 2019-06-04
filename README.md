@@ -29,7 +29,7 @@ There are probably several directions to choose from.
 
 Basic direction.
 
-- unkown
+- unknown
 
 Maybe go to some strange places.
 
@@ -58,3 +58,7 @@ Probably there will be several kinds of items.
 
 - You need a key to open BOSSROOM.The master of the castle will be waiting for you here.
 - To resist a grumpy master, you need to collect defensive and aggressive items.
+
+#### 5.prompt
+
+tell you the location information.

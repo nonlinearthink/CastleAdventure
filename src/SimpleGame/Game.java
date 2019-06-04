@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Game {
+
     private Room curentRoom;
     private HashMap<String, Handler> handlers = new HashMap<String, Handler>();
     private HashSet<Item> bag = new HashSet<Item>();
@@ -14,6 +15,7 @@ public class Game {
         handlers.put("bye", new HandlerBye(this));
         handlers.put("help", new HandlerHelp(this));
         handlers.put("search", new HandlerSearch(this));
+        handlers.put("prompt", new HandlerPrompt(this));
         createRooms();
     }
 
@@ -31,14 +33,14 @@ public class Game {
         prison = new Room("prison", Status.open);
         trap = new Room("trap", Status.open);
         bossroom = new Room("\b\b\b\b\b\b\b\b\b\b\b\b\b\b! ! ! Woke up the master of the castle ! ! !",
-                Status.open, true);
+                Status.bossRoom);
 
         outside.setExit("east", lobby);
         outside.setExit("west", pub);
         lobby.setExit("north", backroom);
         lobby.setExit("down", kitchen);
         lobby.setExit("up", study);
-        backroom.setExit("unkown", trap);
+        backroom.setExit("unknown", trap);
         backroom.setExit("south", lobby);
         backroom.setExit("cross", pub);
         kitchen.setExit("up", lobby);
@@ -48,7 +50,7 @@ public class Game {
         study.setExit("south", bedroom);
         bedroom.setExit("up", bossroom);
         bedroom.setExit("north", study);
-        bossroom.setExit("unkown", pub);
+        bossroom.setExit("unknown", pub);
         pub.setExit("east", outside);
 
         kitchen.setItem("Fruit knife", Belong.weapon);
@@ -92,11 +94,11 @@ public class Game {
         if (nextRoom == null) {
             System.out.println("There is no door.");
             return;
-        } else if (nextRoom.status == Status.closed) {
+        } else if (nextRoom.seeStatus() == Status.closed) {
             boolean flag = false;
             for (Item each : bag) {
                 if (each.belong == Belong.key) {
-                    nextRoom.status = Status.open;
+                    nextRoom.setStatus(Status.open);
                     flag = true;
                     break;
                 }
@@ -105,7 +107,7 @@ public class Game {
                 System.out.println("The door is closed.");
                 return;
             }
-        } else if (nextRoom.bossRoom) {
+        } else if (nextRoom.seeStatus() == Status.bossRoom) {
             boolean hasArmor = false, hasWeapon = false;
             for (Item each : bag) {
                 if (hasArmor && hasWeapon) {
@@ -149,10 +151,6 @@ public class Game {
         in.close();
     }
 
-    public void putInBag(Item item) {
-        bag.add(item);
-    }
-
     public static void main(String[] args) {
         Game game = new Game();
         game.printWelcome();
@@ -160,4 +158,5 @@ public class Game {
 
         System.out.println("Thank you for coming. Bye! ");
     }
+
 }

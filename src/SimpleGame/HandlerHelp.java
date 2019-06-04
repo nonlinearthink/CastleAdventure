@@ -1,11 +1,13 @@
 package SimpleGame;
 
 public class HandlerHelp extends Handler {
-    public HandlerHelp(Game game){
+
+    public HandlerHelp(Game game) {
         super(game);
     }
+
     @Override
-    public void doCmd(String word){
+    public void doCmd(String word) {
         System.out.println("Get lost? The commands you can do are: ");
         System.out.print("1.go ,which will enters the next room.");
         System.out.println(" You can choose one direction to enter. such as: go west.");
@@ -13,6 +15,8 @@ public class HandlerHelp extends Handler {
         System.out.println("3.help ,which will get a guide.");
         System.out.print("4.search, which will search for a item in the room,");
         System.out.println(" You have to collect items to get through some rooms.");
+        System.out.println("5.prompt, which will tell you the location information.");
         System.out.println();
     }
+
 }

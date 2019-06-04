@@ -1,14 +1,13 @@
 package SimpleGame;
 
-public class HandlerGo extends Handler {
+public class HandlerPrompt extends Handler{
 
-    public HandlerGo(Game game) {
+    public HandlerPrompt(Game game){
         super(game);
     }
 
     @Override
     public void doCmd(String word) {
-        game.goRoom(word);
+        game.showPrompt();
     }
-
 }

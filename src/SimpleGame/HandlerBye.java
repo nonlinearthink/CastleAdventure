@@ -1,11 +1,14 @@
 package SimpleGame;
 
 public class HandlerBye extends Handler {
-    public HandlerBye(Game game){
+
+    public HandlerBye(Game game) {
         super(game);
     }
+
     @Override
-    public boolean isBye(){
+    public boolean isBye() {
         return true;
     }
+
 }

@@ -4,7 +4,7 @@ This is a Java command line game adapted from a free course on MOOC website of C
 
 You can compile it yourself and run it. 
 
-**You can then find the source file under "src/SimpleGame" and the compiled class file under "out/production/javaProject/SimpleGame".**
+**You can then find the source file under "src/game" and the compiled class file under "out/production/javaProject/game".**
 
 For a detailed introduction to the game, please check here.
 

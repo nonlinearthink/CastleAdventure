@@ -8,6 +8,15 @@ You can compile it yourself and run it.
 
 For a detailed introduction to the game, please check here.
 
+## file
+#### source file under “src/game”
+
+#### complied class under “out/production/javaProject/game”
+
+#### game map under “map/”
+
+#### plot script under “script/”
+
 
 ## rule
 

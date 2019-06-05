@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 /**
+ * @version 1.0
  * @author www.icourse163.org/course/ZJU-1001542001
  * @author Jaycee Zhou
  */
@@ -34,17 +35,16 @@ public class Game {
         Room outside, lobby, pub, study, bedroom;
         Room backroom, kitchen, prison, trap, bossroom;
 
-        outside = new Room("outside", Status.open);
-        lobby = new Room("lobby", Status.open);
-        pub = new Room("pub", Status.open);
-        study = new Room("study", Status.open);
-        bedroom = new Room("bedroom", Status.closed);
-        backroom = new Room("backroom", Status.open);
-        kitchen = new Room("kitchen", Status.open);
-        prison = new Room("prison", Status.open);
-        trap = new Room("trap", Status.open);
-        bossroom = new Room("\b\b\b\b\b\b\b\b\b\b\b\b\b\b! ! ! Woke up the master of the castle ! ! !",
-                Status.bossRoom);
+        outside = new Room("outside", Status.outSide, "outside");
+        lobby = new Room("lobby", Status.open, "lobby");
+        pub = new Room("pub", Status.open, "pub");
+        study = new Room("study", Status.open, "study");
+        bedroom = new Room("bedroom", Status.closed, "bedroom");
+        backroom = new Room("backroom", Status.open, "backroom");
+        kitchen = new Room("kitchen", Status.open, "kitchen");
+        prison = new Room("prison", Status.open, "prison");
+        trap = new Room("trap", Status.open, "trap");
+        bossroom = new Room("bossroom", Status.bossRoom, "bossroom");
 
         outside.setExit("east", lobby);
         outside.setExit("west", pub);
@@ -76,11 +76,26 @@ public class Game {
      */
     private void printWelcome() {
         System.out.println();
-        System.out.println("Welcome to the Castle Adventure!");
-        System.out.println("If you don't mind playing this boring game.");
-        System.out.println("If you need help，just enter 'help' .");
+        System.out.println("Welcome to Castle Adventure!");
+        System.out.println("This is a boring command line game.");
+        System.out.println("Welcome to make suggestions and help me improve the game.");
+        System.out.println("You can visit its github page with https://github.com/nonlinearthink/CastleAdventure");
         System.out.println();
         showPrompt();
+        System.out.println();
+        System.out.println("Now if you need help，just enter 'help' .");
+        System.out.println();
+    }
+
+    /**
+     * Visited room in detail
+     * @param nextRoom Next room
+     */
+    private void roomVisit(Room nextRoom){
+        curentRoom = nextRoom;
+        curentRoom.runSript();
+        if(curentRoom.seeStatus() != Status.outSide)
+            curentRoom.setStatus(Status.reenter);
     }
 
     /**
@@ -117,6 +132,7 @@ public class Game {
 
         if (nextRoom == null) {
             System.out.println("There is no door.");
+            System.out.println();
             return;
         } else if (nextRoom.seeStatus() == Status.closed) {
             boolean flag = false;
@@ -144,8 +160,7 @@ public class Game {
                     hasWeapon = true;
                 }
             }
-            curentRoom = nextRoom;
-            showPrompt();
+            roomVisit(nextRoom);
             if (!hasArmor || !hasWeapon) {
                 System.out.println("Lose Game!");
                 System.exit(0);
@@ -153,8 +168,7 @@ public class Game {
             System.out.println("You have Killed master and continue to your adventure\n");
             return;
         }
-        curentRoom = nextRoom;
-        showPrompt();
+        roomVisit(nextRoom);
     }
 
     /**
@@ -163,6 +177,7 @@ public class Game {
     public void play() {
         Scanner in = new Scanner(System.in);
         while (true) {
+            System.out.print("Do what? ");
             String line = in.nextLine();
             String[] words = line.split(" ");
             Handler handler = handlers.get(words[0]);
@@ -170,6 +185,7 @@ public class Game {
             if (words.length > 1)
                 value = words[1];
             if (handler != null) {
+                System.out.println();
                 handler.doCmd(value);
                 if (handler.isBye())
                     break;

@@ -28,7 +28,7 @@ public class Room {
      * Read file as script
      */
     private void readFileByLine() {
-        File file = new File("././script/"+Script);
+        File file = new File("././text/"+Script);
         BufferedReader reader = null;
 
         try {

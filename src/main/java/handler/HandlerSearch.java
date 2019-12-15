@@ -1,5 +1,7 @@
 //: game/HandlerSearch.java
-package game;
+package handler;
+
+import stage.Game;
 
 /**
  * @author Jaycee Zhou

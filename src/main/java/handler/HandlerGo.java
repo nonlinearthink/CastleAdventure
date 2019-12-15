@@ -1,5 +1,7 @@
 //: game/HandlerGo.java
-package game;
+package handler;
+
+import stage.Game;
 
 /**
  * @author www.icourse163.org/course/ZJU-1001542001

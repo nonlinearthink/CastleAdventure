@@ -1,6 +1,7 @@
 //: game/Game.java
-package game;
+package stage;
 
+import handler.*;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;

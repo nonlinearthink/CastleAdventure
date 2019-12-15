@@ -1,5 +1,5 @@
 //: game/Room.java
-package game;
+package stage;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -37,7 +37,8 @@ public class Room {
             while ((Line = reader.readLine()) != null) {
                 System.out.println(Line);
                 try {
-                    Thread.currentThread().sleep(2000);
+                    Thread.currentThread();
+                    Thread.sleep(2000);
                 } catch (Exception e) {
                 }
             }

@@ -1,5 +1,7 @@
 //: game/HandlerBye.java
-package game;
+package handler;
+
+import stage.Game;
 
 /**
  * @author www.icourse163.org/course/ZJU-1001542001
@@ -13,6 +15,11 @@ public class HandlerBye extends Handler {
      */
     public HandlerBye(Game game) {
         super(game);
+    }
+
+    @Override
+    public void doCmd(String word) {
+        
     }
 
     /**

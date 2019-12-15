@@ -1,5 +1,5 @@
 //: game/Item.java
-package game;
+package stage;
 
 /**
  * @author Jaycee Zhou
